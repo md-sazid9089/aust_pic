@@ -1,0 +1,62 @@
+.code-block-wrapper {
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-block-header {
+  height: 32px;
+  background-color: var(--color-secondary-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-block-lang {
+  background-color: rgba(43, 168, 161, 0.2);
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+
+.code-block-copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-white);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.code-block-copy-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.code-block-pre {
+  margin: 0;
+  padding: 16px 20px;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.code-block-pre code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* highlight.js override to match card design */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}

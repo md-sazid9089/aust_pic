@@ -1,0 +1,75 @@
+/* UPDATED: dark-glass teal pill chips, brighter text on glass */
+.scoreboard-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.score-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(96, 200, 180, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(200, 230, 225, 0.85);
+  transition: border-color var(--transition-fast);
+}
+
+.correct-chip {
+  color: #7ee0c4;
+}
+
+.wrong-chip {
+  color: #ffc6c6;
+}
+
+.streak-chip {
+  color: #ffe4a8;
+}
+
+.pulse-streak {
+  border-color: rgba(255, 200, 90, 0.6);
+  box-shadow: 0 0 12px rgba(255, 200, 90, 0.3);
+  animation: pulseGlow 1.5s infinite;
+}
+
+.chip-value {
+  font-weight: 700;
+}
+
+.chip-label {
+  opacity: 0.7;
+  font-size: 11px;
+}
+
+.score-reset-btn {
+  background: transparent;
+  border: 1px solid rgba(96, 200, 180, 0.2);
+  border-radius: var(--radius-pill);
+  color: rgba(200, 230, 225, 0.65);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 10px;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+  font-weight: 500;
+}
+
+.score-reset-btn:hover {
+  color: #ffc6c6;
+  border-color: rgba(255, 122, 122, 0.55);
+  background-color: rgba(255, 122, 122, 0.1);
+}
+
+@media (max-width: 768px) {
+  .chip-label {
+    display: none;
+  }
+  
+  .score-chip {
+    padding: 4px 8px;
+  }
+}

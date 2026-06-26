@@ -1,0 +1,190 @@
+/* UPDATED: dark-glass readability, textarea teal-tinted, gradient submit, quick-pick defaults/hover */
+.guess-panel-card {
+  background: transparent;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(96, 200, 180, 0.18);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-card);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.guess-panel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  border-color: rgba(96, 200, 180, 0.4);
+}
+
+.guess-panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2f4f0;
+}
+
+.quick-picks-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-picks-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(200, 230, 225, 0.55);
+  text-transform: uppercase;
+}
+
+.quick-picks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.quick-pick-btn {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(96, 200, 180, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  text-align: left;
+  color: rgba(200, 230, 225, 0.75);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  line-height: 1.3;
+}
+
+.quick-pick-btn:hover:not(:disabled) {
+  border-color: rgba(56, 189, 160, 0.6);
+  color: #d0eeea;
+  background-color: rgba(56, 189, 160, 0.1);
+}
+
+.quick-pick-selected {
+  background-color: rgba(56, 189, 160, 0.18);
+  border-color: rgba(56, 189, 160, 0.75);
+  color: #d0eeea;
+  font-weight: 500;
+}
+
+.quick-pick-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.guess-separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.separator-line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(96, 200, 180, 0.15);
+}
+
+.separator-text {
+  font-size: 12px;
+  color: rgba(200, 230, 225, 0.55);
+  white-space: nowrap;
+}
+
+.guess-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  border: 1px solid rgba(96, 200, 180, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  resize: vertical;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #d0eeea;
+  line-height: 1.5;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.guess-textarea::placeholder {
+  color: rgba(200, 230, 225, 0.4);
+}
+
+.guess-textarea:focus {
+  border-color: rgba(96, 200, 180, 0.55);
+  box-shadow: 0 0 0 3px rgba(56, 189, 160, 0.15);
+  outline: none;
+}
+
+.guess-textarea:disabled {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: rgba(200, 230, 225, 0.4);
+  cursor: not-allowed;
+}
+
+.guess-submit-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.guess-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #2db89a, #1a8f78);
+  color: #061511;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 6px 18px rgba(43, 184, 154, 0.25);
+}
+
+.guess-submit-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(43, 184, 154, 0.35);
+}
+
+.guess-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.guess-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guess-keyboard-hint {
+  font-size: 12px;
+  color: rgba(200, 230, 225, 0.55);
+  text-align: center;
+}
+
+.guess-keyboard-hint kbd {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(96, 200, 180, 0.2);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  color: #d0eeea;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 1px 4px;
+  margin: 0 2px;
+}
+
+@media (max-width: 768px) {
+  .guess-panel-card {
+    padding: 20px;
+  }
+}

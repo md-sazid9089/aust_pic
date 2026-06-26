@@ -1,0 +1,208 @@
+.puzzle-card-wrapper {
+  animation: fadeInUp 0.3s ease;
+  width: 100%;
+}
+
+/* UPDATED: dark-glass readability colors (titles #e2f4f0, body rgba(200,230,225,0.75)) */
+.puzzle-card {
+  background: transparent;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(96, 200, 180, 0.18);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-card);
+  padding: 28px 32px;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.puzzle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  border-color: rgba(96, 200, 180, 0.4);
+}
+
+.puzzle-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.puzzle-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2f4f0;
+}
+
+.category-chip {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(200, 230, 225, 0.7);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(96, 200, 180, 0.18);
+}
+
+.badge-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-pill {
+  border: 1px solid rgba(56, 189, 160, 0.55);
+  color: #7ee0c4;
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgba(56, 189, 160, 0.12);
+}
+
+.puzzle-card-divider {
+  height: 1px;
+  background-color: rgba(96, 200, 180, 0.15);
+  width: 100%;
+}
+
+.comparison-section-header {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(200, 230, 225, 0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.output-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.output-compare-box {
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.output-expected {
+  background-color: rgba(56, 189, 160, 0.1);
+  border: 1px solid rgba(56, 189, 160, 0.35);
+}
+
+.output-actual {
+  background-color: rgba(255, 122, 122, 0.08);
+  border: 1px solid rgba(255, 122, 122, 0.3);
+}
+
+.compare-box-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 230, 225, 0.6);
+}
+
+.compare-box-value {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #e2f4f0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.puzzle-input-row {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(96, 200, 180, 0.25);
+  color: rgba(200, 230, 225, 0.75);
+}
+
+.puzzle-input-label {
+  font-weight: 600;
+  color: #e2f4f0;
+}
+
+.puzzle-actions-row {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn-ghost {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(96, 200, 180, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(200, 230, 225, 0.75);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.action-btn-ghost:hover {
+  border-color: rgba(56, 189, 160, 0.65);
+  color: #7ee0c4;
+  background-color: rgba(56, 189, 160, 0.12);
+}
+
+.action-btn-ghost-active {
+  background-color: rgba(56, 189, 160, 0.18);
+  border-color: rgba(56, 189, 160, 0.65);
+  color: #d0eeea;
+}
+
+.puzzle-reveal-container {
+  overflow: hidden;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.hint-banner-content {
+  background-color: rgba(255, 200, 90, 0.08);
+  border: 1px solid rgba(255, 200, 90, 0.3);
+  border-left: 3px solid #ffc85a;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+.hint-text-para {
+  font-size: 14px;
+  color: rgba(200, 230, 225, 0.75);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .puzzle-card {
+    padding: 20px;
+  }
+
+  .output-comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

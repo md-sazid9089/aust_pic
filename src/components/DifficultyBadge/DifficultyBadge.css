@@ -1,0 +1,37 @@
+.difficulty-badge {
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.badge-beginner {
+  background-color: #DCFCE7;
+  color: #15803D;
+  border-color: #86EFAC;
+}
+
+.badge-intermediate {
+  background-color: #FEF9C3;
+  color: #A16207;
+  border-color: #FDE047;
+}
+
+.badge-advanced {
+  background-color: #FFE4E6;
+  color: #BE123C;
+  border-color: #FDA4AF;
+}
+
+.badge-expert {
+  background-color: #EDE9FE;
+  color: #6D28D9;
+  border-color: #C4B5FD;
+}

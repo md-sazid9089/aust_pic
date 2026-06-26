@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- PCB Trace style connection tracks -->
+  <path d="M 15 50 L 35 50" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" opacity="0.4" />
+  <path d="M 85 50 L 65 50" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" opacity="0.4" />
+  <path d="M 50 15 L 50 35" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" opacity="0.4" />
+  <path d="M 50 85 L 50 65" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" opacity="0.4" />
+  
+  <!-- Outer Node circles -->
+  <circle cx="15" cy="50" r="4" fill="#1E7A75" />
+  <circle cx="85" cy="50" r="4" fill="#1E7A75" />
+  <circle cx="50" cy="15" r="4" fill="#1E7A75" />
+  <circle cx="50" cy="85" r="4" fill="#1E7A75" />
+
+  <!-- Bug body / IC Chip layout -->
+  <rect x="30" y="30" width="40" height="40" rx="8" fill="#142B37" stroke="#2BA8A1" stroke-width="3" />
+  
+  <!-- Bug legs / IC Pins -->
+  <line x1="22" y1="40" x2="30" y2="40" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  <line x1="22" y1="50" x2="30" y2="50" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  <line x1="22" y1="60" x2="30" y2="60" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  
+  <line x1="70" y1="40" x2="78" y2="40" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  <line x1="70" y1="50" x2="78" y2="50" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  <line x1="70" y1="60" x2="78" y2="60" stroke="#2BA8A1" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Antennae / Bug feelers -->
+  <path d="M 45 30 Q 40 20 35 22" fill="none" stroke="#2BA8A1" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M 55 30 Q 60 20 65 22" fill="none" stroke="#2BA8A1" stroke-width="3.5" stroke-linecap="round" />
+  
+  <!-- Center indicator LED (accent color node) -->
+  <circle cx="50" cy="50" r="5" fill="#2BA8A1" />
+</svg>

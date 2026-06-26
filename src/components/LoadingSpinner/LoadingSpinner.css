@@ -1,0 +1,48 @@
+/* UPDATED: dark theme spinner — translucent ring + teal top arc with glow */
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.spinner {
+  border-radius: 50%;
+  border: 3px solid rgba(96, 200, 180, 0.18);
+  border-top-color: #38bda0;
+  box-shadow: 0 0 12px rgba(56, 189, 160, 0.25);
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+.spinner--sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.spinner--md {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+.spinner--lg {
+  width: 52px;
+  height: 52px;
+  border-width: 4px;
+}
+
+.spinner-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(200, 230, 225, 0.75);
+  text-align: center;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

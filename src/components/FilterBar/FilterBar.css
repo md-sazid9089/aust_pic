@@ -1,0 +1,115 @@
+/* UPDATED: floating glass-pill filter row, layoutId sliding highlight, dark readable colors */
+.filter-bar-hud {
+  position: fixed;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  pointer-events: none;
+}
+
+.filter-bar-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(10, 25, 35, 0.55);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(96, 200, 180, 0.18);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(200, 230, 225, 0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.filter-pills-row {
+  display: flex;
+  gap: 4px;
+}
+
+.filter-pill {
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(200, 230, 225, 0.75);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-pill:hover {
+  color: #e2f4f0;
+}
+
+.filter-pill-highlight {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(56, 189, 160, 0.85);
+  border: 1px solid rgba(56, 189, 160, 0.95);
+  box-shadow: 0 0 10px rgba(56, 189, 160, 0.35);
+  z-index: 0;
+}
+
+.filter-pill-label {
+  position: relative;
+  z-index: 1;
+}
+
+.filter-pill-active {
+  color: #062018;
+  font-weight: 600;
+}
+
+.filter-counter-wrapper {
+  padding-left: 14px;
+  border-left: 1px solid rgba(96, 200, 180, 0.18);
+  flex-shrink: 0;
+}
+
+.puzzle-counter-text {
+  font-size: 12px;
+  color: rgba(200, 230, 225, 0.65);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .filter-bar-hud {
+    top: 60px;
+    width: calc(100vw - 20px);
+    max-width: none;
+  }
+
+  .filter-bar-pill {
+    padding: 6px 12px;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .filter-counter-wrapper {
+    padding-left: 10px;
+  }
+}
