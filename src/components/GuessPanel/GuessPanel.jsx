@@ -30,23 +30,7 @@ export default function GuessPanel({
   const isTextDisabled  = selectedQuickPick !== null || guessSubmitted || thinkingStage !== null;
   const isSubmitDisabled = guessSubmitted || thinkingStage !== null || (!userGuess.trim() && selectedQuickPick === null);
 
-  // ── Feature 2: stable confidence scores seeded by puzzle id ──────────────
-  const confidenceScores = useMemo(() => {
-    const base = [72, 81, 64, 89];
-    const seed = puzzle.id.charCodeAt(puzzle.id.length - 1);
-    // deterministic shuffle using seed
-    const shuffled = [...base].map((v, i) => ({ v, sort: (seed * (i + 3)) % 7 }))
-      .sort((a, b) => a.sort - b.sort)
-      .map((o) => o.v);
-    // correct pick always gets the highest value
-    const max = Math.max(...shuffled);
-    if (shuffled[puzzle.correct_quick_pick] !== max) {
-      const maxIdx = shuffled.indexOf(max);
-      [shuffled[puzzle.correct_quick_pick], shuffled[maxIdx]] =
-        [shuffled[maxIdx], shuffled[puzzle.correct_quick_pick]];
-    }
-    return shuffled;
-  }, [puzzle.id, puzzle.correct_quick_pick]);
+
 
   // ── Feature 4: intercept submit → show AI thinking sequence ─────────────
   const handleSubmitWithThinking = async () => {
@@ -119,7 +103,6 @@ export default function GuessPanel({
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <span className="pick-text">{pick}</span>
-                <span className="pick-confidence">{confidenceScores[index]}%</span>
               </motion.button>
             );
           })}
