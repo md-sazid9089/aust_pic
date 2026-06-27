@@ -39,16 +39,22 @@
   gap: 6px;
 }
 
+/* TYPOGRAPHY: Gaming typography updates in PuzzleCard.css */
 .puzzle-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #e2f4f0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+  color: #ffffff;
 }
 
 .category-chip {
   align-self: flex-start;
-  font-size: 11px;
-  font-weight: 600;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: rgba(200, 230, 225, 0.7);
   background-color: rgba(255, 255, 255, 0.04);
@@ -68,8 +74,10 @@
   color: #7ee0c4;
   border-radius: var(--radius-pill);
   padding: 3px 10px;
-  font-size: 11px;
-  font-weight: 600;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   background-color: rgba(56, 189, 160, 0.12);
 }
@@ -81,11 +89,12 @@
 }
 
 .comparison-section-header {
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(200, 230, 225, 0.55);
-  letter-spacing: 0.08em;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
+  color: #7ec8bc;
 }
 
 .output-comparison-grid {
@@ -113,36 +122,39 @@
 }
 
 .compare-box-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: rgba(200, 230, 225, 0.6);
 }
 
 .compare-box-value {
-  font-family: var(--font-mono);
-  font-size: 15px;
+  font-family: var(--font-code);
+  font-size: 1.3rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
   white-space: pre-wrap;
   word-break: break-all;
   color: #e2f4f0;
   line-height: 1.4;
-  font-weight: 500;
 }
 
 .puzzle-input-row {
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-family: var(--font-code);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
   background-color: rgba(255, 255, 255, 0.03);
   padding: 8px 12px;
   border-radius: var(--radius-sm);
   border: 1px dashed rgba(96, 200, 180, 0.25);
-  color: rgba(200, 230, 225, 0.75);
+  color: #94d4ca;
 }
 
 .puzzle-input-label {
-  font-weight: 600;
-  color: #e2f4f0;
+  font-family: var(--font-code);
+  font-weight: var(--weight-semibold);
 }
 
 .puzzle-actions-row {
@@ -155,8 +167,10 @@
   border: 1px solid rgba(96, 200, 180, 0.2);
   border-radius: var(--radius-sm);
   padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
   color: rgba(200, 230, 225, 0.75);
   cursor: pointer;
   display: flex;
@@ -191,7 +205,9 @@
 }
 
 .hint-text-para {
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
   color: rgba(200, 230, 225, 0.75);
   line-height: 1.5;
 }
@@ -206,3 +222,55 @@
     gap: 12px;
   }
 }
+
+/* ── AI LAYER: Feature 7 — AI Detected Pattern tag ──────────────────── */
+.ai-detection-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(56, 189, 160, 0.06);
+  border: 1px solid rgba(56, 189, 160, 0.16);
+  border-radius: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.detection-icon {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #60c8b4;
+  animation: spin-slow 4s linear infinite;
+  display: inline-block;
+  position: relative;
+}
+.detection-icon::before {
+  content: '';
+  position: absolute;
+  top: 1px; left: 1px; right: 1px; bottom: 1px;
+  background: rgba(96, 200, 180, 0.5);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.detection-text {
+  font-family: var(--font-code);
+  font-size: 0.68rem;
+  color: rgba(160, 210, 200, 0.7);
+}
+
+.detection-text strong {
+  color: #60c8b4;
+  font-weight: 600;
+}
+
+.detection-confidence {
+  font-family: var(--font-code);
+  font-size: 0.62rem;
+  color: rgba(96, 200, 180, 0.45);
+  margin-left: 4px;
+}
+

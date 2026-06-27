@@ -40,8 +40,35 @@
   --color-border-strong:   #2BA8A1;
 
   /* Typography */
-  --font-sans:  'Inter', sans-serif;
-  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+  --font-display:  'Orbitron', 'Segoe UI', sans-serif;
+  --font-ui:       'Exo 2', 'Segoe UI', sans-serif;
+  --font-body:     'Inter', 'Segoe UI', sans-serif;
+  --font-code:     'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Font Sizes — gaming scale */
+  --text-xs:    0.65rem;   /* keyboard hints, meta labels */
+  --text-sm:    0.78rem;   /* badges, category tags */
+  --text-base:  0.92rem;   /* body, quick picks */
+  --text-md:    1.05rem;   /* section labels, button text */
+  --text-lg:    1.25rem;   /* card subtitles */
+  --text-xl:    1.55rem;   /* puzzle titles */
+  --text-2xl:   2rem;      /* score numbers */
+  --text-3xl:   2.6rem;    /* hero numbers (streak on fire) */
+
+  /* Letter spacing — gaming style */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.06em;
+  --tracking-wider:   0.12em;
+  --tracking-widest:  0.2em;
+
+  /* Font weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    800;
 
   /* Border Radius */
   --radius-sm:  6px;
@@ -67,15 +94,30 @@
   --transition-slow: 0.4s ease;
 }
 
+/* TYPOGRAPHY: Gaming interface Typography System implementation */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-display: swap;
+}
+
+::selection {
+  background: rgba(96, 200, 180, 0.3);
+  color: #ffffff;
 }
 
 /* UPDATED: fullscreen dark ambient radial gradient + global dark surface defaults */
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
   background:
     radial-gradient(ellipse at 20% 30%, #0d2b2b 0%, transparent 55%),
     radial-gradient(ellipse at 80% 70%, #0a1f3d 0%, transparent 55%),
@@ -83,8 +125,6 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   color: rgba(200, 230, 225, 0.85);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {

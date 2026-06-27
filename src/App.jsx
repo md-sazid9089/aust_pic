@@ -1,5 +1,6 @@
+// AI LAYER: Added neural activity widget (F8) and wired userAnswer to ResultModal (F6)
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import apiAnimation from '../public/API.json';
 import GameHeader from './components/GameHeader/GameHeader';
@@ -8,6 +9,7 @@ import PuzzleCard from './components/PuzzleCard/PuzzleCard';
 import GuessPanel from './components/GuessPanel/GuessPanel';
 import ResultModal from './components/ResultModal/ResultModal';
 import EmptyState from './components/EmptyState/EmptyState';
+import HowToPlay from './components/HowToPlay/HowToPlay';
 import { puzzles } from './data/puzzles';
 import { shuffleArray } from './utils/shuffle';
 import { loadScore, saveScore, resetScore } from './utils/score';
@@ -67,6 +69,7 @@ function MainApp() {
   const [showHint, setShowHint] = useState(false);
   const [codeWasViewed, setCodeWasViewed] = useState(false);
   const [showResultModal, setShowResultModal] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(() => loadScore());
 
@@ -127,7 +130,7 @@ function MainApp() {
 
   // Selection events
   const handleQuickPickSelect = useCallback((index) => {
-    setSelectedQuickPick(index);
+    setSelectedQuickPick((prev) => (prev === index ? null : index));
     setUserGuess('');
   }, []);
 
@@ -156,11 +159,19 @@ function MainApp() {
     saveScore(newScore);
   }, [currentPuzzle, userGuess, selectedQuickPick, guessSubmitted, score]);
 
-  // Reset metrics
-  const handleResetScore = useCallback(() => {
+  // Reset all state (Task 4E)
+  const handleReset = useCallback(() => {
     resetScore();
     setScore({ correct: 0, total: 0, streak: 0 });
-  }, []);
+    setFilters({ difficulty: 'all', language: 'all' });
+    setCurrentIndex(0);
+    resetPuzzleState();
+    setShowResultModal(false);
+    setShowHowToPlay(false);
+  }, [resetPuzzleState]);
+
+  // Keep for GameHeader reset compatibility
+  const handleResetScore = handleReset;
 
   // Moving to the next question
   const handleNext = useCallback(() => {
@@ -177,7 +188,7 @@ function MainApp() {
   // Keyboard shortcut bounds
   useEffect(() => {
     const handleKeyDown = (e) => {
-      const tag = document.activeElement?.tagName;
+      const tag = e.target.tagName;
       if (tag === 'TEXTAREA' || tag === 'INPUT') return;
 
       const key = e.key.toUpperCase();
@@ -204,6 +215,22 @@ function MainApp() {
 
   return (
     <div className="app-layout">
+      {/* ── Feature: How To Play floating HUD ── */}
+      <motion.div
+        className="hud-float hud-meta"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        style={{ position: 'absolute', top: 20, right: 30, zIndex: 10, display: 'flex', gap: '12px', alignItems: 'center' }}
+      >
+        <button
+          className="hud-how-to-play-btn"
+          onClick={() => setShowHowToPlay(true)}
+        >
+          ? How To Play
+        </button>
+      </motion.div>
+
       <GameHeader score={score} onResetScore={handleResetScore} />
       <FilterBar
         filters={filters}
@@ -270,6 +297,15 @@ function MainApp() {
         solvedWithoutCode={!codeWasViewed}
         score={score}
         isLastPuzzle={isLastPuzzle}
+        userAnswer={
+          selectedQuickPick !== null
+            ? (currentPuzzle?.quick_picks?.[selectedQuickPick] || '')
+            : userGuess
+        }
+      />
+      <HowToPlay
+        isOpen={showHowToPlay}
+        onClose={() => setShowHowToPlay(false)}
       />
     </div>
   );
