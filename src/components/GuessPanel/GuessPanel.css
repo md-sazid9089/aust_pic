@@ -177,8 +177,10 @@
 }
 
 .guess-submit-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.35;
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 .guess-keyboard-hint {
@@ -209,3 +211,149 @@
     padding: 20px;
   }
 }
+
+/* ── AI LAYER: Feature 1 — BugDetect AI Model Header ────────────────── */
+.ai-model-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(56, 189, 160, 0.06);
+  border: 1px solid rgba(56, 189, 160, 0.15);
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+.ai-model-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #60c8b4;
+  box-shadow: 0 0 0 0 rgba(96, 200, 180, 0.6);
+  animation: pulse-ring 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(96, 200, 180, 0.6); }
+  70%  { box-shadow: 0 0 0 8px rgba(96, 200, 180, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(96, 200, 180, 0); }
+}
+.ai-model-name {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #60c8b4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ai-model-version {
+  font-family: var(--font-code);
+  font-size: 0.62rem;
+  color: rgba(160, 210, 200, 0.5);
+  margin-left: 2px;
+}
+.ai-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  margin-left: auto;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(74, 222, 128, 0.7);
+  animation: status-blink 2s ease-in-out infinite;
+}
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.ai-status-text {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  color: rgba(74, 222, 128, 0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── AI LAYER: Feature 2 — Confidence scores on quick picks ─────────── */
+.pick-text {
+  flex: 1;
+  text-align: left;
+}
+.pick-confidence {
+  font-family: var(--font-code);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(96, 200, 180, 0.5);
+  white-space: nowrap;
+  padding: 2px 6px;
+  background: rgba(96, 200, 180, 0.08);
+  border-radius: 4px;
+  border: 1px solid rgba(96, 200, 180, 0.12);
+  align-self: flex-start;
+  margin-top: 1px;
+  transition: all var(--transition-fast);
+}
+.quick-pick-btn:hover .pick-confidence {
+  color: #60c8b4;
+  background: rgba(96, 200, 180, 0.15);
+  border-color: rgba(96, 200, 180, 0.3);
+}
+.quick-pick-selected .pick-confidence {
+  color: #ffffff;
+  background: rgba(96, 200, 180, 0.25);
+}
+
+/* ── AI LAYER: Feature 4 — Thinking overlay ─────────────────────────── */
+.ai-thinking-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: rgba(6, 18, 28, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.thinking-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+}
+.thinking-stage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.25;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-8px);
+}
+.thinking-stage.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.stage-icon { font-size: 1.1rem; }
+.stage-label {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #b0ddd8;
+  letter-spacing: 0.04em;
+}
+.stage-dots { display: flex; gap: 4px; margin-left: 4px; }
+.stage-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #60c8b4;
+  animation: dot-bounce 0.8s ease-in-out infinite;
+}
+.stage-dots span:nth-child(2) { animation-delay: 0.15s; }
+.stage-dots span:nth-child(3) { animation-delay: 0.30s; }
+@keyframes dot-bounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.4; }
+  50%       { transform: translateY(-4px); opacity: 1; }
+}
+

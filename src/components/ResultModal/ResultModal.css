@@ -185,3 +185,96 @@
     padding: 24px 20px;
   }
 }
+
+/* ── AI LAYER: Feature 5 — Streaming explanation cursor ─────────────── */
+.stream-cursor {
+  display: inline-block;
+  color: #60c8b4;
+  font-weight: 700;
+  animation: cursor-blink 0.7s step-end infinite;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── AI LAYER: Feature 6 — Answer Similarity score bar ──────────────── */
+.match-score-bar { margin-bottom: 4px; }
+
+.match-score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.match-label {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(160, 210, 200, 0.6);
+}
+
+.match-value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.match-value.high {
+  color: #60c8b4;
+  text-shadow: 0 0 16px rgba(96, 200, 180, 0.6);
+}
+
+.match-value.low {
+  color: #f87171;
+  text-shadow: 0 0 16px rgba(248, 113, 113, 0.4);
+}
+
+.match-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.match-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.match-fill.correct {
+  background: linear-gradient(90deg, #1a8f78, #60c8b4);
+  box-shadow: 0 0 10px rgba(96, 200, 180, 0.5);
+}
+
+.match-fill.wrong {
+  background: linear-gradient(90deg, #7f1d1d, #f87171);
+}
+
+/* modal-attributes-row must still be visible */
+.modal-attributes-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-footer-btns {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.next-puzzle-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(43, 184, 154, 0.35);
+}
+
